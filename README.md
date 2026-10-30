@@ -21,8 +21,8 @@ TreeDoctor is a quality diagnostic tool designed for phylogeneticists using IQ-T
 
 - **全文件解析** — 自动识别并解析 IQ-TREE 的全部 9 种输出文件类型
   **Full File Parsing** — Automatically recognize and parse all 9 IQ-TREE output file types
-- **多维度诊断** — 36 条诊断规则覆盖 8 个质量维度（D1-D8）
-  **Multi-Dimensional Diagnostics** — 36 diagnostic rules across 8 quality dimensions (D1-D8)
+- **多维度诊断** — 36 条诊断规则覆盖 8 个质量维度
+  **Multi-Dimensional Diagnostics** — 36 diagnostic rules across 8 quality dimensions
 - **交叉验证** — 7 条交叉验证规则检查数据一致性
   **Cross-Validation** — 7 cross-validation rules to check data consistency
 - **双形态交付** — CLI 命令行 + GUI 桌面应用
@@ -34,16 +34,16 @@ TreeDoctor is a quality diagnostic tool designed for phylogeneticists using IQ-T
 
 ### 质量维度 | Quality Dimensions
 
-| 维度 | 名称 | 核心问题 | 规则数 |
-|------|------|----------|--------|
-| D1 | 对齐质量 | 序列数据本身是否有质量问题？ | 6 |
-| D2 | 模型选择 | 替换模型选择是否合理？ | 5 |
-| D3 | 似然与信息准则 | 似然值和信息准则是否正常？ | 4 |
-| D4 | 树拓扑与分支长度 | 树的形态是否合理？ | 6 |
-| D5 | 分支支持值 | 节点支持是否充分？ | 5 |
-| D6 | Bootstrap 收敛性 | bootstrap 是否充分收敛？ | 4 |
-| D7 | 一致性树一致性 | ML 树和一致性树是否一致？ | 3 |
-| D8 | 运行参数与效率 | 运行配置是否合理？ | 3 |
+| 质量维度 | 核心问题 | 规则数 |
+|----------|----------|--------|
+| 对齐质量 (Alignment) | 序列数据本身是否有质量问题？ | 6 |
+| 模型选择 (Model Selection) | 替换模型选择是否合理？ | 5 |
+| 似然与信息准则 (Likelihood & IC) | 似然值和信息准则是否正常？ | 4 |
+| 树拓扑与分支长度 (Topology & Branch Lengths) | 树的形态是否合理？ | 6 |
+| 分支支持值 (Branch Support) | 节点支持是否充分？ | 5 |
+| Bootstrap 收敛性 (Bootstrap Convergence) | bootstrap 是否充分收敛？ | 4 |
+| 一致性树一致性 (Consensus Consistency) | ML 树和一致性树是否一致？ | 3 |
+| 运行参数与效率 (Runtime & Efficiency) | 运行配置是否合理？ | 3 |
 
 ---
 
