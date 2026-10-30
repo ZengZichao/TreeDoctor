@@ -1,0 +1,470 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   TreeDoctor Design System
+   Inspired by Vercel Design Language
+   — clean, modern, developer-focused
+   System font stack, stacked shadows,
+   hairline borders, negative tracking
+
+   Token 契约：
+   - 所有语义色均以 CSS 变量定义，组件层禁止硬编码 hex
+   - 评级徽章三套 token（bg/fg/border）按主题分别合成，
+     亮色基于 #ffffff 合成、暗色基于 #161616 合成（不透明值），
+     从根本上消除 alpha 合成导致的暗色对比度失效（UX-01）
+   ============================================ */
+
+:root {
+  /* === Brand Colors (Green primary — Phylogenetic Tree) === */
+  /* 交互填充面（按钮底色，白字对比 5.02:1） */
+  --td-primary: #15803d;
+  --td-primary-hover: #166534;
+  --td-primary-active: #14532d;
+  /* 文本/链接专用绿（≥4.5:1 on #fafafa）——不与填充面混用 */
+  --td-primary-text: #15803d;
+  --td-primary-text-hover: #14532d;
+  /* 品牌装饰绿：仅用于 logo/渐变装饰，不承担语义 */
+  --td-brand: #16a34a;
+  --td-primary-light: #f0fdf4;
+  --td-primary-lighter: #dcfce7;
+  --td-primary-border: #bbf7d0;
+
+  /* === Functional Colors (mapped to semantic meanings) === */
+  --td-success: #15803d;
+  --td-warning: #b45309;
+  --td-error: #b91c1c;
+  --td-info: #1d4ed8;
+
+  /* 色块上的文字（徽章/chip 专用，主题敏感） */
+  --td-on-success: #052e16;
+  --td-on-warning: #431407;
+  --td-on-error: #450a0a;
+  --td-on-info: #172554;
+
+  /* === 图表分类色（亮色，全部 ≥3:1 vs #ffffff，WCAG 1.4.11） === */
+  --td-chart-1: #b91c1c;
+  --td-chart-2: #c2410c;
+  --td-chart-3: #a16207;
+  --td-chart-4: #15803d;
+  --td-chart-5: #0f766e;
+  --td-chart-neutral: #57534e;
+  --td-grid: #d4d4d4;
+  --td-axis: #525252;
+
+  /* === 评级系统（亮色：22% 底 + 40% 边 + 深字，全部 ≥4.5:1） === */
+  --td-grade-a-base: #22c55e;
+  --td-grade-b-base: #84cc16;
+  --td-grade-c-base: #eab308;
+  --td-grade-d-base: #f97316;
+  --td-grade-f-base: #ef4444;
+  --td-grade-n-base: #9ca3af;
+
+  --td-grade-a-bg: #cef2dc;
+  --td-grade-b-bg: #e4f4cc;
+  --td-grade-c-bg: #faeec9;
+  --td-grade-d-bg: #fee0cc;
+  --td-grade-f-bg: #fcd6d6;
+  --td-grade-n-bg: #e9e9e9;
+
+  --td-grade-a-border: #a7e8bf;
+  --td-grade-b-border: #ceeba2;
+  --td-grade-c-border: #f7e19c;
+  --td-grade-d-border: #fdc7a2;
+  --td-grade-f-border: #f9b4b4;
+  --td-grade-n-border: #d7d7d7;
+
+  --td-grade-a-fg: #14532d;
+  --td-grade-b-fg: #1a2e05;
+  --td-grade-c-fg: #422006;
+  --td-grade-d-fg: #431407;
+  --td-grade-f-fg: #450a0a;
+  --td-grade-n-fg: #374151;
+
+  /* === Neutral Colors (Light) — Vercel surface ladder === */
+  --td-canvas: #ffffff;
+  --td-canvas-soft: #fafafa;
+  --td-canvas-soft-2: #f5f5f5;
+  --td-bg-base: #ffffff;
+  --td-bg-layout: #fafafa;
+  --td-bg-container: #ffffff;
+  --td-bg-elevated: #ffffff;
+  --td-bg-spotlight: rgba(0, 0, 0, 0.85);
+
+  /* Text colors — adjusted for WCAG AA compliance */
+  --td-text: #171717;
+  --td-text-secondary: #404040;
+  --td-text-tertiary: #525252;
+  /* 修正：#737373 在 #f5f5f5 上仅 4.35 → 提升至 4.89（UX-13） */
+  --td-text-quaternary: #6b6b6b;
+
+  --td-border: #e5e5e5;
+  --td-border-secondary: #ebebeb;
+  --td-border-strong: #d4d4d4;
+  --td-fill: rgba(0, 0, 0, 0.04);
+  --td-fill-secondary: rgba(0, 0, 0, 0.02);
+  --td-fill-tertiary: rgba(0, 0, 0, 0.06);
+
+  /* === Hairline system (Vercel) === */
+  --td-hairline: #ebebeb;
+  --td-hairline-strong: #a1a1a1;
+
+  /* === Shadows (Vercel stacked shadow system) === */
+  --td-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --td-shadow-sm: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --td-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 2px 2px rgba(0, 0, 0, 0.06), 0 8px 24px -8px rgba(0, 0, 0, 0.08);
+  --td-shadow-lg: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.08), 0 12px 48px -8px rgba(0, 0, 0, 0.12);
+
+  /* === Motion (Vercel easing curves) — 桌面工具时长上限 200ms === */
+  --td-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --td-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* === Border Radius (Vercel: sm=6, md=8, lg=12, xl=16) === */
+  --td-radius-xs: 4px;
+  --td-radius-sm: 6px;
+  --td-radius: 8px;
+  --td-radius-lg: 12px;
+  --td-radius-xl: 16px;
+
+  /* === Typography — System font stack (no external font download needed) === */
+  --td-font-sans: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", "Noto Sans", sans-serif;
+  --td-font-mono: "Cascadia Code", "SFMono-Regular", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* === Selection === */
+  --td-selection-bg: #171717;
+  --td-selection-fg: #f2f2f2;
+
+  /* Color scheme for form controls */
+  color-scheme: light;
+}
+
+.dark {
+  /* === Brand adjustments for dark mode === */
+  --td-primary: #15803d;          /* 填充面在暗色下仍保持白字 ≥4.5:1 */
+  --td-primary-hover: #166534;
+  --td-primary-active: #14532d;
+  --td-primary-text: #4ade80;     /* 暗色下链接文字提亮（10.38:1 on #161616） */
+  --td-primary-text-hover: #86efac;
+  --td-brand: #22c55e;
+  --td-primary-light: rgba(22, 163, 74, 0.12);
+  --td-primary-lighter: rgba(22, 163, 74, 0.2);
+  --td-primary-border: rgba(22, 163, 74, 0.3);
+
+  /* Functional colors for dark mode — brighter for contrast */
+  --td-success: #4ade80;
+  --td-warning: #fbbf24;
+  --td-error: #f87171;
+  --td-info: #60a5fa;
+
+  /* 色块上的文字（暗色） */
+  --td-on-success: #dcfce7;
+  --td-on-warning: #fef3c7;
+  --td-on-error: #fee2e2;
+  --td-on-info: #dbeafe;
+
+  /* === 图表分类色（暗色，全部 ≥3:1 vs #161616） === */
+  --td-chart-1: #f87171;
+  --td-chart-2: #fb923c;
+  --td-chart-3: #facc15;
+  --td-chart-4: #4ade80;
+  --td-chart-5: #2dd4bf;
+  --td-chart-neutral: #a3a3a3;
+  --td-grid: #333333;
+  --td-axis: #a3a3a3;
+
+  /* === 评级系统（暗色：22% 底基于 #161616 合成 + 亮字，实测 8.6–9.9:1） === */
+  --td-grade-a-base: #4ade80;
+  --td-grade-b-base: #a3e635;
+  --td-grade-c-base: #facc15;
+  --td-grade-d-base: #fb923c;
+  --td-grade-f-base: #f87171;
+  --td-grade-n-base: #9ca3af;
+
+  --td-grade-a-bg: #193d26;
+  --td-grade-b-bg: #2e3e16;
+  --td-grade-c-bg: #453913;
+  --td-grade-d-bg: #482b16;
+  --td-grade-f-bg: #462020;
+  --td-grade-n-bg: #343434;
+
+  --td-grade-a-border: #1b5c33;
+  --td-grade-b-border: #425f16;
+  --td-grade-c-border: #6b5510;
+  --td-grade-d-border: #713b10;
+  --td-grade-f-border: #6d2828;
+  --td-grade-n-border: #4c4c4c;
+
+  --td-grade-a-fg: #86efac;
+  --td-grade-b-fg: #d9f99d;
+  --td-grade-c-fg: #fef08a;
+  --td-grade-d-fg: #fed7aa;
+  --td-grade-f-fg: #fecaca;
+  --td-grade-n-fg: #e5e7eb;
+
+  /* === Neutral Colors (Dark) — Vercel dark surface with proper layering === */
+  --td-canvas: #000000;
+  --td-canvas-soft: #0a0a0a;
+  --td-canvas-soft-2: #161616;
+  --td-bg-base: #000000;
+  --td-bg-layout: #0a0a0a;
+  --td-bg-container: #161616;
+  --td-bg-elevated: #1c1c1c;
+  --td-bg-spotlight: rgba(255, 255, 255, 0.85);
+
+  /* Text colors — adjusted for WCAG AA compliance in dark mode */
+  --td-text: #ededed;
+  --td-text-secondary: #b4b4b4;
+  --td-text-tertiary: #9a9a9a;
+  --td-text-quaternary: #8a8a8a;
+
+  --td-border: #2a2a2a;
+  --td-border-secondary: #222222;
+  --td-border-strong: #3a3a3a;
+  --td-fill: rgba(255, 255, 255, 0.08);
+  --td-fill-secondary: rgba(255, 255, 255, 0.04);
+  --td-fill-tertiary: rgba(255, 255, 255, 0.06);
+
+  --td-hairline: #222222;
+  --td-hairline-strong: #3a3a3a;
+
+  /* Shadows in dark mode */
+  --td-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --td-shadow-sm: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --td-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 2px 4px rgba(0, 0, 0, 0.2), 0 8px 24px -8px rgba(0, 0, 0, 0.3);
+  --td-shadow-lg: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 8px rgba(0, 0, 0, 0.2), 0 12px 48px -8px rgba(0, 0, 0, 0.4);
+
+  --td-selection-bg: #ededed;
+  --td-selection-fg: #000000;
+
+  color-scheme: dark;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+* {
+  border-color: var(--td-border);
+}
+
+body {
+  margin: 0;
+  font-family: var(--td-font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: var(--td-bg-layout);
+  color: var(--td-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background: var(--td-selection-bg);
+  color: var(--td-selection-fg);
+}
+
+/* ============================================
+   Custom Scrollbar (Vercel-style: minimal)
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   Animations — with prefers-reduced-motion support
+   全部时长 ≤ 200ms（桌面工具不产生迟滞感）
+   ============================================ */
+
+@keyframes td-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes td-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes td-fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes td-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes td-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 深链命中高亮：2s 内从主色描边衰减到透明 */
+@keyframes td-rule-flash {
+  0%, 60% {
+    box-shadow: 0 0 0 3px var(--td-primary-text);
+  }
+  100% {
+    box-shadow: 0 0 0 3px transparent;
+  }
+}
+
+/* Animation utility classes */
+.td-fade-in {
+  animation: td-fade-in 0.15s var(--td-ease-out);
+}
+.td-fade-in-up {
+  animation: td-fade-in-up 0.2s var(--td-ease-out);
+}
+.td-fade-in-down {
+  animation: td-fade-in-down 0.2s var(--td-ease-out);
+}
+.td-zoom-in {
+  animation: td-zoom-in 0.2s var(--td-ease-out);
+}
+.td-rule-flash {
+  animation: td-rule-flash 2s var(--td-ease-in-out);
+}
+
+/* Staggered animation delays（仅首次进入路由时由组件挂载） */
+.td-stagger-1 { animation-delay: 0.02s; animation-fill-mode: both; }
+.td-stagger-2 { animation-delay: 0.04s; animation-fill-mode: both; }
+.td-stagger-3 { animation-delay: 0.06s; animation-fill-mode: both; }
+.td-stagger-4 { animation-delay: 0.08s; animation-fill-mode: both; }
+.td-stagger-5 { animation-delay: 0.1s; animation-fill-mode: both; }
+.td-stagger-6 { animation-delay: 0.12s; animation-fill-mode: both; }
+.td-stagger-7 { animation-delay: 0.14s; animation-fill-mode: both; }
+.td-stagger-8 { animation-delay: 0.16s; animation-fill-mode: both; }
+
+/* ============================================
+   Transition presets（≤200ms）
+   ============================================ */
+
+.td-transition {
+  transition: color 0.15s var(--td-ease-out), background-color 0.15s var(--td-ease-out), border-color 0.15s var(--td-ease-out), box-shadow 0.15s var(--td-ease-out), opacity 0.15s var(--td-ease-out), transform 0.15s var(--td-ease-out);
+}
+.td-transition-fast {
+  transition: color 0.1s var(--td-ease-out), background-color 0.1s var(--td-ease-out), border-color 0.1s var(--td-ease-out), box-shadow 0.1s var(--td-ease-out), opacity 0.1s var(--td-ease-out), transform 0.1s var(--td-ease-out);
+}
+
+/* 按下反馈：仅动 transform，120ms */
+.td-pressable {
+  transition: transform 0.12s var(--td-ease-out);
+}
+.td-pressable:active {
+  transform: scale(0.97);
+}
+
+/* ============================================
+   Utility classes — Vercel card system
+   三层容器（§8.1）：
+   - .td-section  分区：hairline 无阴影（弱容器）
+   - .td-card     可交互砖块：hairline + shadow，hover 提升
+   ============================================ */
+
+.td-section {
+  background: var(--td-bg-container);
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius-lg);
+}
+
+.td-card {
+  background: var(--td-bg-container);
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius-lg);
+  box-shadow: var(--td-shadow-sm);
+  transition: box-shadow 0.15s var(--td-ease-out), border-color 0.15s var(--td-ease-out);
+}
+
+.td-card-hover {
+  transition: box-shadow 0.15s var(--td-ease-out), border-color 0.15s var(--td-ease-out);
+}
+.td-card-hover:hover {
+  box-shadow: var(--td-shadow);
+  border-color: var(--td-border-strong);
+}
+
+.td-glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(255, 255, 255, 0.85);
+}
+.dark .td-glass {
+  background: rgba(10, 10, 10, 0.85);
+}
+
+/* Focus ring (Vercel style) — applied to all interactive elements */
+.td-focus-ring:focus-visible {
+  outline: 2px solid var(--td-primary-text);
+  outline-offset: 2px;
+}
+
+/* Text truncation */
+.td-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Number font — 仅数值开启 tabular-nums，不改变字体族 */
+.td-num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Display headings */
+.td-display {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* ============================================
+   Reduced motion preference
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

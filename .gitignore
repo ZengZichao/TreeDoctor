@@ -1,0 +1,60 @@
+# Rust
+/target
+**/*.rs.bk
+Cargo.lock
+
+# Remove this line if you want to keep the lock file for binaries
+# Keep Cargo.lock for binary crates
+!Cargo.lock
+
+# Node.js / Frontend
+node_modules/
+gui/dist/
+gui/node_modules/
+
+# Tauri
+gui/src-tauri/target/
+gui/src-tauri/gen/schemas/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS
+.DS_Store
+desktop.ini
+
+# Build artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+*.msi
+*.dmg
+*.AppImage
+*.deb
+
+# Keep release exe for download
+!TreeDoctor_0.1.0_x64.exe
+
+# Logs
+*.log
+logs/
+# Keep test data log files
+!test-data/**/*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Test coverage
+tarpaulin-report.html
+cobertura.xml
+coverage/

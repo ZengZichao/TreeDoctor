@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/tree-icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TreeDoctor - IQ-TREE Analysis Quality Diagnostics</title>
+    <script>
+      // Prevent theme flash: apply dark class before render
+      (function() {
+        var theme = localStorage.getItem('treedoctor-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+        // Sync language with html lang
+        var lang = localStorage.getItem('treedoctor-language');
+        if (lang === 'en') {
+          document.documentElement.lang = 'en';
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

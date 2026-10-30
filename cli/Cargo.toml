@@ -1,0 +1,15 @@
+[package]
+name = "treedoctor-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "treedoctor"
+path = "src/main.rs"
+
+[dependencies]
+treedoctor-core = { path = "../core" }
+clap = { version = "4.5", features = ["derive"] }
+serde_json.workspace = true
