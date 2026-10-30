@@ -47,6 +47,20 @@ TreeDoctor is a quality diagnostic tool designed for phylogeneticists using IQ-T
 
 ---
 
+## 界面预览 | Screenshots
+
+<p align="center">
+  <img src="docs/images/screenshot-light.png" width="49%" alt="分析概览（浅色主题）| Analysis Overview (Light Theme)">
+  <img src="docs/images/screenshot-dark.png" width="49%" alt="分析概览（深色主题）| Analysis Overview (Dark Theme)">
+</p>
+
+<p align="center">
+  <sub>GUI 诊断报告 — 分析概览页面（左：浅色主题 | 右：深色主题）<br>
+  GUI diagnostic report — Analysis Overview (left: light theme | right: dark theme)</sub>
+</p>
+
+---
+
 ## 快速开始 | Quick Start
 
 ### 下载安装 | Download & Install
