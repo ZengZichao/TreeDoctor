@@ -58,3 +58,10 @@ logs/
 tarpaulin-report.html
 cobertura.xml
 coverage/
+
+# Jekyll / GitHub Pages
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+Gemfile.lock

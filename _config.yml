@@ -1,0 +1,63 @@
+# Jekyll configuration for TreeDoctor GitHub Pages
+# Academic minimalist style
+
+title: TreeDoctor
+description: >-
+  IQ-TREE 分析质量诊断工具 — 自动解析、多维评估、交叉验证
+  Quality Diagnostic Tool for IQ-TREE Analysis
+
+# Theme: use minima as base, heavily customized
+theme: minima
+
+# Site settings
+lang: en
+author: TreeDoctor Team
+repository: TreeDoctor/TreeDoctor
+url: https://TreeDoctor.github.io # Update to your actual GitHub Pages URL
+baseurl: "" # Set by GitHub Actions configure-pages step
+
+# Social / SEO
+github_username: TreeDoctor
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  parse_block_html: true
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Navigation
+header_pages:
+  - about.md
+  - features.md
+  - diagnostics.md
+  - download.md
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - Cargo.toml
+  - Cargo.lock
+  - target
+  - cli
+  - core
+  - gui
+  - test-data
+  - docs
+  - TreeDoctor_0.1.0_x64.exe
+  - .github
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- TreeDoctor Logo: Minimalist black & white flat icon -->
+  <!-- Combines a phylogenetic tree with a medical cross -->
+
+  <!-- Background: rounded square with subtle border -->
+  <rect x="32" y="32" width="448" height="448" rx="96" fill="#ffffff"/>
+  <rect x="32" y="32" width="448" height="448" rx="96" fill="none" stroke="#1a6b3c" stroke-width="8"/>
+
+  <!-- Phylogenetic tree: clean horizontal cladogram -->
+  <g stroke="#1a6b3c" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Root branch -->
+    <line x1="128" y1="256" x2="176" y2="256"/>
+    <!-- First split (root → two main clades) -->
+    <line x1="176" y1="160" x2="176" y2="352"/>
+    <line x1="176" y1="160" x2="232" y2="160"/>
+    <line x1="176" y1="352" x2="232" y2="352"/>
+    <!-- Upper clade splits -->
+    <line x1="232" y1="112" x2="232" y2="208"/>
+    <line x1="232" y1="112" x2="304" y2="112"/>
+    <line x1="232" y1="208" x2="304" y2="208"/>
+    <!-- Lower clade splits -->
+    <line x1="232" y1="320" x2="232" y2="384"/>
+    <line x1="232" y1="320" x2="304" y2="320"/>
+    <line x1="232" y1="384" x2="304" y2="384"/>
+  </g>
+
+  <!-- Leaf nodes: filled circles -->
+  <g fill="#1a6b3c">
+    <circle cx="304" cy="112" r="12"/>
+    <circle cx="304" cy="208" r="12"/>
+    <circle cx="304" cy="320" r="12"/>
+    <circle cx="304" cy="384" r="12"/>
+  </g>
+
+  <!-- Medical cross: integrated at the root (left side) -->
+  <g fill="#1a6b3c">
+    <rect x="96" y="224" width="32" height="64" rx="4"/>
+    <rect x="80" y="240" width="64" height="32" rx="4"/>
+  </g>
+</svg>

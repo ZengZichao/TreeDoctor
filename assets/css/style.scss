@@ -1,0 +1,374 @@
+---
+---
+/* TreeDoctor GitHub Pages — Academic Minimalist Style */
+/* Based on minima, heavily customized */
+
+@import "minima";
+
+/* ==================== Design Tokens ==================== */
+:root {
+  --td-primary: #1a6b3c;       /* Phylogenetic green */
+  --td-primary-light: #2d8c52;
+  --td-accent: #8b1a1a;        /* Academic red for highlights */
+  --td-neutral: #2c2c2c;
+  --td-neutral-light: #6b6b6b;
+  --td-neutral-faint: #a8a8a8;
+  --td-bg: #fdfdfd;
+  --td-bg-alt: #f7f7f7;
+  --td-border: #e4e4e4;
+  --td-font-serif: Georgia, "Times New Roman", "Songti SC", "宋体", serif;
+  --td-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --td-font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+  --td-max-width: 760px;
+}
+
+/* ==================== Base Typography ==================== */
+body {
+  font-family: var(--td-font-sans);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--td-neutral);
+  background-color: var(--td-bg);
+}
+
+/* Headings: serif for academic feel */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--td-font-serif);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--td-neutral);
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--td-primary);
+  padding-bottom: 0.3em;
+  margin-top: 2em;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5em;
+}
+
+h4 {
+  font-size: 1.05rem;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1em;
+  hyphens: auto;
+}
+
+/* Links: subtle, academic */
+a {
+  color: var(--td-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+a:hover {
+  color: var(--td-primary-light);
+  border-bottom-color: var(--td-primary-light);
+}
+
+/* Code */
+code, pre {
+  font-family: var(--td-font-mono);
+  font-size: 0.9em;
+}
+
+code {
+  background-color: var(--td-bg-alt);
+  border: 1px solid var(--td-border);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  background-color: var(--td-bg-alt);
+  border: 1px solid var(--td-border);
+  border-radius: 4px;
+  padding: 0.85em 1.1em;
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Blockquote: academic citation style */
+blockquote {
+  margin: 1.2em 0;
+  padding: 0.5em 1.2em;
+  border-left: 3px solid var(--td-primary);
+  background: var(--td-bg-alt);
+  color: var(--td-neutral-light);
+  font-style: normal;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* Tables: clean academic table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+  font-size: 0.92em;
+}
+
+th {
+  text-align: left;
+  font-family: var(--td-font-sans);
+  font-weight: 600;
+  border-bottom: 2px solid var(--td-neutral);
+  padding: 0.5em 0.6em;
+}
+
+td {
+  border-bottom: 1px solid var(--td-border);
+  padding: 0.45em 0.6em;
+}
+
+tr:hover {
+  background-color: var(--td-bg-alt);
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: 0.3em;
+}
+
+/* ==================== Layout ==================== */
+.site-header {
+  border-top: none;
+  border-bottom: 2px solid var(--td-neutral);
+  background-color: var(--td-bg);
+  padding: 1.2em 0;
+}
+
+.site-title {
+  font-family: var(--td-font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.site-title a {
+  color: var(--td-neutral);
+  border-bottom: none;
+}
+
+.site-title a:hover {
+  color: var(--td-primary);
+}
+
+.site-nav {
+  font-size: 0.9rem;
+}
+
+.site-nav .page-link {
+  color: var(--td-neutral-light);
+  border-bottom: none;
+  margin-left: 1.2em;
+  font-family: var(--td-font-sans);
+}
+
+.site-nav .page-link:hover {
+  color: var(--td-primary);
+}
+
+/* Content wrapper: narrower for readability */
+.wrapper {
+  max-width: var(--td-max-width);
+}
+
+.page-content {
+  padding: 2em 0 3em;
+}
+
+/* Footer: minimal */
+.site-footer {
+  border-top: 1px solid var(--td-border);
+  background-color: var(--td-bg);
+  padding: 1.5em 0;
+  font-size: 0.82rem;
+  color: var(--td-neutral-faint);
+}
+
+.site-footer a {
+  color: var(--td-neutral-light);
+}
+
+/* ==================== Components ==================== */
+
+/* Hero section on index page */
+.hero {
+  text-align: center;
+  padding: 1.5em 0 2em;
+}
+
+.hero-logo {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 0.8em;
+  display: block;
+}
+
+.hero-title {
+  font-family: var(--td-font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.2em;
+  color: var(--td-neutral);
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--td-neutral-light);
+  margin-bottom: 0.5em;
+}
+
+.hero-tagline {
+  font-size: 0.9rem;
+  color: var(--td-neutral-faint);
+  font-style: italic;
+}
+
+.hero-badges {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+.hero-badges img {
+  display: inline-block;
+}
+
+.hero-actions {
+  margin-top: 1.2em;
+  display: flex;
+  justify-content: center;
+  gap: 0.8em;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  font-size: 0.9rem;
+  font-family: var(--td-font-sans);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--td-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--td-primary-light);
+  color: #fff;
+  border-bottom: none;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--td-primary);
+  border: 1px solid var(--td-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--td-bg-alt);
+  border-bottom: none;
+}
+
+/* Feature cards */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2em;
+  margin: 1.5em 0;
+}
+
+.feature-card {
+  border: 1px solid var(--td-border);
+  border-radius: 6px;
+  padding: 1em 1.2em;
+  background: var(--td-bg);
+  transition: box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  border-bottom: none;
+  color: var(--td-primary);
+}
+
+.feature-card p {
+  font-size: 0.88rem;
+  color: var(--td-neutral-light);
+  margin-bottom: 0;
+}
+
+/* Grade badges (for diagnostics page) */
+.grade-A { color: #1a6b3c; font-weight: bold; }
+.grade-B { color: #4a9d5e; font-weight: bold; }
+.grade-C { color: #b8860b; font-weight: bold; }
+.grade-D { color: #cc5500; font-weight: bold; }
+.grade-F { color: #8b1a1a; font-weight: bold; }
+
+/* Tech stack table */
+.tech-table th {
+  background-color: var(--td-bg-alt);
+}
+
+/* Section dividers */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--td-border);
+  margin: 2em 0;
+}
+
+/* Math/rendered formulas */
+.math {
+  font-family: var(--td-font-serif);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.7rem;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
