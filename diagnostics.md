@@ -136,4 +136,4 @@ Each rule includes a **template recommendation** explaining the issue and sugges
 concrete next steps — from minor notes (grade B) to strong corrections (grade D/F).
 
 For the full rule definitions with complete grading criteria and recommendation
-templates, see the [diagnostic rules specification](https://github.com/TreeDoctor/TreeDoctor/blob/main/TreeDoctor-开发方案/02-质量诊断规则体系.md).
+templates, see the [diagnostic rules specification](https://github.com/ZengZichao/TreeDoctor/blob/master/TreeDoctor-开发方案/02-质量诊断规则体系.md).

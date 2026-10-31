@@ -10,7 +10,7 @@ nav_order: 4
 ### Pre-built Binaries
 
 Download the latest release from
-[GitHub Releases](https://github.com/TreeDoctor/TreeDoctor/releases):
+[GitHub Releases](https://github.com/ZengZichao/TreeDoctor/releases):
 
 | Platform | File | Type |
 |----------|------|------|
@@ -35,7 +35,7 @@ Download the latest release from
 
 ```bash
 # Clone the repository
-git clone https://github.com/TreeDoctor/TreeDoctor.git
+git clone https://github.com/ZengZichao/TreeDoctor.git
 cd TreeDoctor
 
 # Build the CLI
@@ -101,4 +101,4 @@ This dataset exercises several diagnostic rules:
 
 ### License
 
-TreeDoctor is released under the [MIT License](https://github.com/TreeDoctor/TreeDoctor/blob/main/LICENSE).
+TreeDoctor is released under the [MIT License](https://github.com/ZengZichao/TreeDoctor/blob/master/LICENSE).

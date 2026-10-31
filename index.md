@@ -23,7 +23,7 @@ title: TreeDoctor — IQ-TREE Analysis Quality Diagnostic Tool
   <div class="hero-actions">
     <a href="{{ '/download' | relative_url }}" class="btn btn-primary">Download</a>
     <a href="{{ '/features' | relative_url }}" class="btn btn-secondary">Features</a>
-    <a href="https://github.com/TreeDoctor/TreeDoctor" class="btn btn-secondary">GitHub</a>
+    <a href="https://github.com/ZengZichao/TreeDoctor" class="btn btn-secondary">GitHub</a>
   </div>
 
 </div>
@@ -158,4 +158,4 @@ If TreeDoctor contributes to your research, please cite:
 
 ## License
 
-[MIT License](https://github.com/TreeDoctor/TreeDoctor/blob/main/LICENSE)
+[MIT License](https://github.com/ZengZichao/TreeDoctor/blob/master/LICENSE)

@@ -12,12 +12,12 @@ theme: minima
 # Site settings
 lang: en
 author: TreeDoctor Team
-repository: TreeDoctor/TreeDoctor
-url: https://TreeDoctor.github.io # Update to your actual GitHub Pages URL
-baseurl: "" # Set by GitHub Actions configure-pages step
+repository: ZengZichao/TreeDoctor
+url: https://zengzichao.github.io # GitHub Pages URL
+baseurl: /TreeDoctor # Repository-based Pages URL
 
 # Social / SEO
-github_username: TreeDoctor
+github_username: ZengZichao
 
 # Build settings
 markdown: kramdown
